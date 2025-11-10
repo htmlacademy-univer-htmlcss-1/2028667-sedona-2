@@ -1,0 +1,152 @@
+/* ====== БАЗА: высоты для липкого футера ====== */
+html, body {
+  height: 100%;
+}
+
+.page {                 /* общий обёртчик для страницы */
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* основной контент растягиваем; футер «прилипает» книзу */
+.page > main {
+  flex-grow: 1;        /* занимает всё оставшееся место */
+}
+
+/* ====== СЕТКА-КОНТЕЙНЕР ДЛЯ КОНТЕНТА ====== */
+.container {
+  width: 100%;
+  max-width: 1200px;   /* рабочая ширина макета */
+  margin: 0 auto;
+  padding: 0 40px;     /* горизонтальные поля */
+}
+
+/* ====== ШАПКА ====== */
+.page-header {
+  /* крупный блок, количество элементов фиксировано */
+  padding: 20px 0;
+}
+.page-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* логотип слева, меню/кнопки справа */
+}
+.main-nav {
+  display: flex;
+  gap: 28px;
+}
+
+/* ====== ХИРО/КРУПНЫЕ БЛОКИ ====== */
+.hero {                 /* фоновая шапка с картинкой */
+  padding: 40px 0;
+}
+.hero .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ====== БЛОК «ПРИЧИНЫ/ПРЕИМУЩЕСТВА» НА ГЛАВНОЙ ====== */
+.reasons {
+  padding: 40px 0;
+}
+.reasons .row {         /* три плитки в ряд (фиксированное число) */
+  display: flex;
+  gap: 20px;
+}
+.reasons .tile {
+  flex: 1 1 0;          /* равные по ширине плитки */
+  padding: 24px;
+}
+
+/* фото+текст на 2 колонки (50/50) */
+.split {
+  display: flex;
+  gap: 20px;
+}
+.split > .col {
+  flex: 1 1 0;
+}
+
+/* ====== БЛОК «ПРИЕЗЖАЙТЕ…» (иконки: жильё/еда/сувениры) ====== */
+.features {
+  padding: 40px 0;
+}
+.features .list {
+  display: flex;
+  gap: 24px;
+}
+.features .item {
+  flex: 1 1 0;          /* три равные карточки */
+  padding: 24px;
+}
+
+/* ====== КАТАЛОГ (страница гостиниц) ====== */
+.catalog-hero {         /* верхний фильтр/баннер */
+  padding: 32px 0;
+}
+.catalog-hero .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.filters {              /* блок фильтров — фиксированный набор групп */
+  display: flex;
+  gap: 24px;
+}
+
+.results-bar {          /* строка: «Найдено…», селектор сортировки, вид */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 24px 0;
+}
+
+/* сетка карточек отелей (3 в ряд) */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.card {
+  /* 3 колонки: (100% - 2 промежутка) / 3 */
+  width: calc((100% - 48px) / 3);
+  padding: 16px;
+}
+
+/* пагинация — фиксированный набор кнопок */
+.pagination {
+  margin: 32px 0 0;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+/* ====== ФУТЕР (липкий) ====== */
+.page-footer {
+  padding: 24px 0;
+  margin-top: auto;     /* на всякий случай дублируем поведение липкости */
+}
+.page-footer .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* соцсети — телефон — логотип академии */
+  gap: 16px;
+}
+
+/* ====== УТИЛИТЫ ДЛЯ ВИЗУАЛЬНОЙ ОТЛАДКИ (outline) ====== */
+/* Добавляйте эти классы во время разметки, потом удалите */
+.debug-1 { outline: 2px solid #ff6; }
+.debug-2 { outline: 2px solid #6cf; }
+.debug-3 { outline: 2px solid #f66; }
+.debug-4 { outline: 2px solid #9c6; }
+
+/* Пример: временно подсветить крупные блоки */
+/*
+.page-header, .hero, .reasons, .features, .catalog-hero,
+.results-bar, .cards, .page-footer { outline: 1px dashed #bbb; }
+*/
